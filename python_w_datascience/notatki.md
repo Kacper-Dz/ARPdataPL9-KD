@@ -44,8 +44,7 @@ Python rozpozna 9 jako int() a 9.0 jako float()
 print(pierwsza komenda, druga komenda, trzecia komenda)
 
 Funkcja voight/noun - funkcje po wykonaniu nie zwracają żadnej wartości
-
-Pętle:
+# Pętle
 if 'warunek' :
     co jeśli 'warunek' jest spełniony
 else:
@@ -65,3 +64,7 @@ Można łączyć warunki, np: 2 <= x <= 5, to samo co x >= 2 and x <= 5
 
 elif - sprawdzenie kolejnego warunku, jesli poprzedni nie był prawdziwy
 Przy wielu elif'ach pętla działa do pierwszego spełnienia elif
+# Funkcje
+def [nazwa funkcji](argumenty funkcji, jeśli brak - pusty nawias):
+Funkcje niczego nie zwracają, wykonują tylko określone zadanie.
+Jeżeli funkcja ma coś zwrócić, należy użyć polecenia 'return'
