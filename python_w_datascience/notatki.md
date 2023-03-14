@@ -65,6 +65,58 @@ Można łączyć warunki, np: 2 <= x <= 5, to samo co x >= 2 and x <= 5
 elif - sprawdzenie kolejnego warunku, jesli poprzedni nie był prawdziwy
 Przy wielu elif'ach pętla działa do pierwszego spełnienia elif
 # Funkcje
-def [nazwa funkcji](argumenty funkcji, jeśli brak - pusty nawias):
+def [nazwa funkcji] (argumenty funkcji, jeśli brak - pusty nawias):
 Funkcje niczego nie zwracają, wykonują tylko określone zadanie.
 Jeżeli funkcja ma coś zwrócić, należy użyć polecenia 'return'
+
+Książka prowadzona za rękę: Python dla każdego, podstawy programowania
+
+# Kolekcje danych
+
+txt = "Ala ma kota."
+
+Warunek na podstawie zbioru
+
+if "pies" in txt:
+    print("Ala faktycznie ma kota")
+
+len() - podanie długości danego tekstu
+
+print(txt.upper()) - na txt działamy metodą upper()
+
+https://www.w3schools.com/python/python_ref_string.asp
+https://docs.python.org/3/library/stdtypes.html
+https://www.programiz.com/python-programming/methods/string
+
+Dokumentacja jest naszym przyjacielem.
+
+# Listy
+
+Można mieszać listy, można np umieścić listę w liscie.
+Najlepiej trzymać się jednego typu danych w ramach listy, choć technicznie można zamieścić kilka
+typów, aczkowliek nie jest to zalecane.
+
+Pusta lista: 
+
+'''empty = [] lub empty = list()'''
+
+Funkcje agregujące i działania na listach: 
+
+
+- sum(lista) - suma
+- max(lista) - maximum
+- min(lista) - minimum
+- .clear() - wyczyszczenie listy
+- .append() - dodanie nowego elementu do listy
+- .extend() - roszerzenie listy o wiele elementów (podajemy jako liste)
+- .index() - podaje index szukanego elementu
+- .insert() - pozwoli dodać element pod dodanym indexem, jezeli istnieje el. pod danym
+   indexem -> lista zostanie rpzesunięta w prawo
+- .remove() - usuwanie wybranego elementu z listy, pierwszego napotkanego od poczatku/lewej strony. Działa tak długo jak
+   dostępne są wartości tego typu
+- .pop() - usuwanie wskazanego elementu po wskazanym indeksie, jeśli nie jest wskazany - usuwa ostatni, pierwszy po 
+   prawej - zwraca tez usunieta wartosc
+'''
+
+
+
