@@ -3,20 +3,21 @@
 # a funkcja zwraca temperaturę w K. Obie wartości maja być typu float
 
 def temp_conversion(cels: float):
-    return float(cels + 273.15)
+    return cels + 273.15
 
 # Zadanie 02
 # Napisać funkcję, która jako argument przyjmuje dowolny łańcuch znakowy, a następnie zwraca słownik zliczający ilość
 # wystąpień każdego słowa (kot =/= kota). Podpowiedź możemy użyć metody ```split(" ")```.
 
+
 def word_count(text):
     count = {}
-    word = text.split(" ")
-    for c in word:
-        if c not in count:
-            count[c] = 1
+    word = text.lower().split(" ")
+    for wor in word:                  # alternatywa dla linjiki 14 i 15: for word in txt.split(" "):
+        if wor not in count.keys():
+            count[wor] = 1
         else:
-            count[c] += 1
+            count[wor] += 1
     return count
 
 
@@ -68,20 +69,34 @@ while liczba >= 0:
 else:
     print("Podana liczba jest ujemna! Suma podanych wcześniej liczb wynosi: ", suma - liczba)
 
+# Alternatywa:
+
+n = int(input("Podaj liczbę: "))
+summary = 0
+while n >= 0:
+    summary += n
+    n = int(input("Podaj kolejną liczbę: "))
+
+print(f"Suma podanych liczb to {summary}")
+
 # Zadanie 05
 # Napisać funkcję, która konwertuje liczbę z systemu dziesiętnego na binarny
 # (nie używamy funkcji wbudowanych w Pythonie)
 
-def dzie_to_binar(dzies):
+
+def dzie_to_binar(dzies: int) -> str:
     reszta = ""
     while dzies > 0:
         reszta = str(dzies % 2) + reszta
-        dzies = dzies // 2
+        dzies //= 2
     return reszta
 
-liczba = int(input("Podaj liczbę, która zostanie zamieniona na system dziesiętny: " ))
-print(dzie_to_binar(liczba))
 
+liczba = int(input("Podaj liczbę, która zostanie zamieniona na system dziesiętny: "))
+print(dzie_to_binar(liczba))
+# Funkcja wbudowana:
+
+print(bin(liczba))
 
 # Zadanie 06
 # Użytkownik podaje liczbe całkowitą. Następnie program zwraca sumę CYFR z których składa się podana liczba.
@@ -108,3 +123,12 @@ for c in lista:
     if lista.count(c) <= 1:
         unikat.append(c)
 print("Ilość unikatowych łańcuchów to:", len(unikat))
+
+# Alternatywa, z użyciem zbioru:
+en = int(input("Ilość łańcuchów znakowych do wprowadzenia: "))
+my_collection = set()
+for i in range(en):
+    tekst = input(f"Podaj ciąg znaków nr {i+1}:  ")
+    my_collection.add(tekst)
+
+print(f"Ilość unikatowych łańcuchów to: {len(my_collection)}")

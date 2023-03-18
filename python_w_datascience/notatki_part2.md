@@ -53,3 +53,10 @@ f"" (fprint) można wykorzystywać nie tylko w princie, ale równierz w tworzeni
 print(f"Moje i równa się {i}, a potęga 2^i to: {2 ** i}")
 ```
 Informacje z zewnątrz zmaieszczamy w klamrach. ważne jest wstawienie f przed "".
+
+Powstawanie dziwnych reszt przy działaniach na wartościach (float) wynikają z dokładności binarnej. Dlatego python nie
+utrzymuje perfekcyjnej dokładności danych.
+
+Zakresy:
+integer: do 255 (np. 300 zapisywane jest jako suma dwóch elementów) Dlatego duże liczby pomimo tej samej wartości ma
+różne wartości. Dlatego dla a = 300 i b = 300, a is b zwróci false
