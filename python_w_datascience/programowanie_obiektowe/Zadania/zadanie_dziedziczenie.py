@@ -34,7 +34,7 @@ class Person:
 
 
 class Customer(Person):
-    def __init__(self, imie, nazwisko, adres, wiek, orders, login, total_order_cost):
+    def __init__(self, imie, nazwisko, adres, wiek, orders, login, total_order_cost):   # Alternatywnie, deklarujemy bez total_order_cost i orders - nie wymagają deklaracji przy tworzeniu elementu
         super().__init__(imie, nazwisko, adres, wiek)
         self.orders: list = orders
         self.login: str = login

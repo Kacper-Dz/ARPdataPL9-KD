@@ -86,6 +86,7 @@ print(c1.color, c2.color)
 ```
 obiekt.atrybut = "Nowa wartość atrybutu"
 ```
+- ```__init___``` jest metodą specjalną, nie konstruktorem!!!!
 ## Dziedziczenie
 
 - Można stworzyć nową klasę, która dziedziczy atrybuty po poprzedniej (superclass).
@@ -101,3 +102,96 @@ super().__init__(legs_count, eyes_count, name)
 ```
 super().__str__()
 ```
+
+## Dekoratory
+- Dekroatory wywołujemy ```@```
+- użycie ```func()``` określa miejsce wykonania funkcji w dekoratorze
+- Dekorator dla funkcji, która nie przyjmuje argumentów i niczego nie zwraca:
+```
+def line_decorator(func):
+    def wrapper():
+        print(f"*******************************************")
+        func()
+        print(f"*******************************************")
+    return wrapper
+```
+- Dekorator dla funkcji, która przyjmuje argumenty i nic nie zwraca:
+```
+def trigger_info(func):
+    def wrapper(*args, **kwargs):
+        print(f"Wywołano funkcję {func}")
+        func(*args, **kwargs)       
+    return wrapper
+```
+- Dekorator dla funkcji, która przyjmuje argumenty oraz coś zwraca:
+```
+def trigger_info(func):
+    def wrapper(*args, **kwargs):   # Przekazanie arg do funkcji
+        print(f"Wywołano funkcję {func}")
+        return func(*args, **kwargs)
+    return wrapper
+```
+- Dobrą praktyką jest nazywanie funkcji wewnętrznej w dekoratorze jako ```wrapper```
+
+## Wartości prywatne
+- Dla klasy dane sa dostepne w pamieci bezposredniej, sa podatne na ataki, aby utworzyc zmienna prywatna/zabezpieczona 
+  to należy użyć __, np. self.__age - nie bedziemy mieli do niego bezpośredniego dostęp
+```
+class Employee:
+    def __init__(self, fname: str, lname: str, age: int) -> None:
+        self.fname = fname
+        self.lname = lname
+        self.__age = age
+```
+- Operator property zabezpiecza zmienne w kodzie
+- Aby móc uzyskać dostęp do takiej informacji należy skorzystać z getterów i setterów, które zabezpieczają pamięć dając
+  pośredni dostęp np.
+
+Deklarujemy je w ramach danej klasy.
+- Getter:
+```
+ @property
+    def age(self):
+        return self.__age
+```
+- Setter:
+```
+ # Setter
+    @age.setter
+    def age(self, new_age):
+        self.__age = new_age
+```
+- dzięki nim możemy bezpiecznie, w pośredni sposów odczytać i zapisać wartości chornionych elementów:
+```
+p1 = Employee("Jan", "Kowalski", 30)
+print(p1.age)
+p1.f_name = "Adam"
+print(p1.f_name)
+p1.age = 42
+```
+## Argumenty pakowane
+- możemy argumenty wejściowe do funkcji zbić za pomocą ```*args```
+- W fukncji odnosimy się wtedy do miennej args będących zbiorem wprowadzonych argumentów do funkcji.
+- ```**kwargs``` - mamy zapis w postaci słownika
+- pomimo pakowania zmiennych *args i **kwargs nadal mogą być używane obok zwykłych wartości 
+  (przed argumentem pakowanym), np:
+```
+def roar_value(prefix: str, *args) -> None:
+  for i in args:
+    print(f"{prefix} -> {i}")
+```
+## Obsługa błędów
+Istenieje możliwość sprawdzenia części kodu pod kątem wystapienia błędów. Można to zrobić w następujący sposób:
+```
+x = 10
+try:
+    print( x / 0)
+except ZeroDivisionError: # except: <-- instrukcje dla wystąpienia dowolnego błędu, unikamy obsługi wszytski kodów błędu na raz
+    print("Próbowałeś/aś dzielić przez zero.")
+```
+- po ```except``` można zdefiniować dla jakiegot ypu błędu mozna zdefiniować błąd. Jeżeli nie wpiszemy błędu, działa dla wszystkich
+  typów błędu
+- Unikamy tworzenia except dla każdego typu błędu
+- ```finally:``` na końcu wykonuje część kodu niezaleznie od tego czy został wywołany except czy też nie
+- całkowity esception caluse można zostawić na samym końcu (jesli bardzo już trzeba).
+- przy kilku typach błędów uruchomi się zawsze ten except dla którego zaistniał błąd.
