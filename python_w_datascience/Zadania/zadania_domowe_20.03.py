@@ -11,7 +11,7 @@ def maximum(*args) -> int:
                 maxi = args[i]
         except TypeError:
             continue
-    return maxi
+    return int(maxi)
 
 # Zadanie 2
 # Napisz moduł, który będzie posiadał funkcje obliczające:
@@ -40,7 +40,9 @@ def second_element(number: float) -> float:
 
 
 def harmonic_func(element: int) -> float:
-    return 1 / element
+    if type(element) == int and element > 0:
+        return 1 / element
+
 
 # Zadanie 3
 # Napisz program, który narysuje trójkąt od zależnie podanego n
@@ -66,4 +68,4 @@ def triangle_print(n: int):
     return n
 
 
-triangle_print(5)
+triangle_print(3)
