@@ -57,7 +57,7 @@ file.close()
 ```
 - rozwiązabie z ```with``` jest zdecydowanie bezpieczniejsza i wygodniejsza
 - ```.writelines``` - przyjmuje krotke, zbior itp. (byle to bylo iterowalne) i każdy element krotki zapisuje jako 
-   nową linię, każdy element musi mieć ```\n``` na końcu po za ostatnim
+   nową linię, każdy element musi mieć ```\n``` na końcu poza ostatnim
 - w ramach jednego towrzenia możemy albo zapisać albo odczytać plik, nie możemy dwukrotnie tego samego zrobić
 
 # Testowanie kodu
@@ -76,3 +76,4 @@ Poziomy testów:
 - systemowe
 
 Funkcja ```assert``` sprawdza działanie funkcji jako true or not true
+
