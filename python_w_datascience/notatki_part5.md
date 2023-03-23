@@ -34,6 +34,6 @@ matplotslib=3.x.x
 # Projekt
 
 ---
-- Aplikacja do zarządzania fakturami
 - moduł `datetime` - moduł do zarzadzania czasem: https://www.w3schools.com/python/python_datetime.asp
 - optymalizacja - wątkowanie, 
+- `*` oznacza pakiet argumentów

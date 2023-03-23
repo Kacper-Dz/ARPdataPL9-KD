@@ -22,17 +22,17 @@ def maximum(*args) -> int:
 # Wzór y= a*x^2 + b^x +c
 
 
-def quadratic_func(a: float, b: float, c: float):
+def quadratic_func(a: float, b: float, c: float) -> list:
     delta = b ** 2 - 4 * a * c
     if delta > 0:
         x1 = (-b - (delta ** 0.5)) / 2
         x2 = (-b + (delta ** 0.5)) / 2
-        return x1, x2
+        return [x1, x2]
     if delta == 0:
-        x1 = -b / (2 * a)
-        return x1
+        x0 = -b / (2 * a)
+        return [x0]
     if delta < 0:
-        return None
+        return []
 
 
 def second_element(number: float) -> float:
@@ -40,7 +40,6 @@ def second_element(number: float) -> float:
 
 
 def harmonic_func(element: int) -> float:
-    if type(element) == int and element > 0:
         return 1 / element
 
 
@@ -57,7 +56,7 @@ def line_decorator(func):
     def wrapper(*args):
         func(*args)
         print("-------------")
-        print(f"Number of stars: {int((int(*args) * (int(*args) + 1)) / 2)}")
+        print(f"Number of stars: {int((int(*args) * (int(*args) + 1)) / 2)}")  # Alternatywa - sum(range(n+1)
     return wrapper
 
 
@@ -68,4 +67,4 @@ def triangle_print(n: int):
     return n
 
 
-triangle_print(3)
+triangle_print(4)

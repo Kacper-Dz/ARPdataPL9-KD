@@ -132,9 +132,12 @@ def trigger_info(func):
     return wrapper
 ```
 - Dobrą praktyką jest nazywanie funkcji wewnętrznej w dekoratorze jako ```wrapper```
+- jeżeli funkcja przyjmuje tylko  1 argument, to można zamiast `args` użyć po prostu n
+- `*` przy `args` oznacza, że jest to pakiet argumentów. Użycie `args` bez gwiazdki powoduje pracy na jednym, pierwszym argumencie
+- 
 
 ## Wartości prywatne
-- Dla klasy dane sa dostepne w pamieci bezposredniej, sa podatne na ataki, aby utworzyc zmienna prywatna/zabezpieczona 
+- Dla klasy dane sa dostepne w pamieci bezpośredniej, są podatne na ataki, aby utworzyć zmienna prywatna/zabezpieczona 
   to należy użyć __, np. self.__age - nie bedziemy mieli do niego bezpośredniego dostęp
 ```
 class Employee:
